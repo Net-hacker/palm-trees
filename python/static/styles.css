@@ -1,6 +1,7 @@
 :root {
   --bg-color: #181818;
   --div-color: #212121;
+  --menu-color: #2E2E2E;
   --text-color: #F5F5F5;
   --invert: 100%;
 }
@@ -8,6 +9,7 @@
 .light-mode {
   --bg-color: #FFFFFF;
   --div-color: #F5F5F5;
+  --menu-color: #E0E0E0;
   --text-color: #181818;
   --invert: 0%;
 }
@@ -95,6 +97,35 @@ nav button img {
   font-weight: 200;
   font-style: normal;
   transition: color 0.3s;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#search {
+  display: flex;
+  float: right;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-left: 5px;
+  align-items: start;
+  background-color: var(--div-color);
+  height: 100vh;
+  transition: background-color 0.3s;
+}
+
+#search input {
+  background-color: var(--bg-color);
+  border-color: var(--bg-color);
+  border-radius: 5px;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s ;
 }
 
 #create {
@@ -106,7 +137,6 @@ nav button img {
   justify-content: center;
   border-radius: 5px;
   margin-top: 5px;
-  margin-right: 5px;
   transition: background-color 0.3s;
 }
 
@@ -148,15 +178,85 @@ nav button img {
   background-color: var(--div-color);
   border-radius: 5px;
   margin-top: 5px;
-  margin-right: 5px;
   justify-content: center;
   transition: background-color 0.3s;
 }
 
 #posts p {
-  color: #F5F5F5;
+  color: var(--text-color);
   font-family: "Inter";
   font-optical-sizing: auto;
   font-weight: 200;
   font-style: normal;
+}
+
+#menu {
+  z-index: 1000;
+  position: fixed;
+  flex-direction: column;
+  top: 6vh;
+  right: 2vw;
+  background-color: var(--menu-color);
+  border-radius: 5px;
+}
+
+#menu h3 {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  color: var(--text-color);
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+#menu ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+#menu ul li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#menu ul li p {
+  margin-right: 5px;
+  margin-left: 5px;
+  color: var(--text-color);
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+#modeB {
+  border: none;
+  background-color: transparent;
+}
+
+#modeB img {
+  width: 24px;
+  height: 24px;
+  transition: opacity 0.3;
+}
+
+#icon-sun {
+  opacity: 1;
+}
+
+#icon-moon {
+  opacity: 0;
+}
+
+.light-mode #icon-sun {
+  opacity: 0;
+}
+
+.light-mode #icon-moon {
+  opacity: 1;
 }
