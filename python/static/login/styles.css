@@ -1,0 +1,100 @@
+:root {
+  --bg-color: #181818;
+  --div-color: #212121;
+  --menu-color: #2E2E2E;
+  --text-color: #F5F5F5;
+  --invert: 100%;
+}
+
+.light-mode {
+  --bg-color: #FFFFFF;
+  --div-color: #F5F5F5;
+  --menu-color: #E0E0E0;
+  --text-color: #181818;
+  --invert: 0%;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--div-color);
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+nav img {
+  height: 5vh;
+  filter: invert(var(--invert));
+  margin-left: 5px;
+}
+
+nav h1 {
+  color: var(--text-color);
+  margin: 5px;
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  transition: color 0.3s;
+}
+
+nav button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  height: 3vh;
+  margin: 5px;
+}
+
+nav button img {
+  height: 3vh;
+  filter: invert(var(--invert));
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--div-color);
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.login .user {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.login .user p {
+  margin: 0px;
+  margin-right: 10px;
+  color: var(--text-color);
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.login .pass {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.login .pass p {
+  margin: 0px;
+  margin-right: 10px;
+  color: var(--text-color);
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}

@@ -1,41 +1,72 @@
+from hash import Hash
 import sqlite3
 import os
 
 class Database:
     def __init__(self):
-        if os.path.exists("db/user.db"):
-            self.conn = sqlite3.connect("db/user.db")
+        self.hash = Hash()
+        if os.path.exists("db/database.db"):
+            self.conn = sqlite3.connect("db/database.db")
             self.cursor = self.conn.cursor()
-            print("Connected")
+            print("Connected!")
         else:
             os.mkdir("db");
-            open("db/user.db", 'a').close()
-            self.conn = sqlite3.connect("db/user.db")
+            open("db/database.db", 'a').close()
+            self.conn = sqlite3.connect("db/database.db")
             self.cursor = self.conn.cursor()
-            table = """
-                CREATE TABLE USER (
-                    username VARCHAR(30) NOT NULL,
+            tableU = """
+                CREATE TABLE users (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    username VARCHAR(30) UNIQUE NOT NULL,
                     password VARCHAR(30) NOT NULL
                 );
             """
-            self.cursor.execute(table)
+            tableM = """
+                CREATE TABLE messages (
+                    username VARCHAR(30) NOT NULL,
+                    message VARCHAR(256) NOT NULL,
+                    time TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+                );
+            """
+            tableF = """
+                CREATE TABLE friends (
+                    follower_id INTEGER NOT NULL,
+                    following_id INTEGER NOT NULL,
+
+                    PRIMARY KEY (follower_id, following_id),
+
+                    FOREIGN KEY (follower_id) REFERENCES users(id) ON DELETE CASCADE,
+                    FOREIGN KEY (following_id) REFERENCES users(id) ON DELETE CASCADE
+                );
+            """
+            self.cursor.execute(tableU)
+            self.cursor.execute(tableM)
+            self.cursor.execute(tableF)
             print("DB Created!")
 
     def search_user(self, username):
-        query = f"SELECT '{username}'"
+        query = f"SELECT username FROM users WHERE username = '{username}'"
         self.cursor.execute(query)
         result = self.cursor.fetchall()
         return result
 
     def create_user(self, username, password):
-        command = f"INSERT INTO USER VALUES ('{username}', '{password}')"
+        command = f"INSERT INTO users (username, password) VALUES ('{username}', '{password}')"
         self.cursor.execute(command)
         self.conn.commit()
 
-    def delete_user(self, username):
-        command = f"DELETE FROM USER WHERE username='{username}'"
+    def login_user(self, username, password):
+        query = f"SELECT password FROM users WHERE username = '{username}'"
+        self.cursor.execute(query)
+        result = self.cursor.fetchall()
+        return self.hash.check_hash(password, result[0])
+
+    def remove_user(self, username):
+        command = f"DELETE FROM users WHERE username='{username}'"
         self.cursor.execute(command)
         self.conn.commit()
+
+    def
 
     def disconnect(self):
         self.conn.close()

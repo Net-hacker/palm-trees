@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Login - palm-trees</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/login/styles.css">
+    <link rel="manifest" href="/static/manifest.json">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+  </head>
+  <body>
+    <nav class="navBar">
+      <img src="/static/favicon-192x192.png">
+      <h1>palm-trees</h1>
+      <button id="settings" onclick="showMenu()">
+        <img src="/static/main/settings.png">
+      </button>
+    </nav>
+    <div class="login">
+      <div class="user">
+        <p>username:</p>
+        <input type="text" id="user">
+      </div>
+      <div class="pass">
+        <p>password:</p>
+        <input type="password" id="pass">
+      </div>
+      <button>Login</button>
+      <button>Sign-Up instead</button>
+    </div>
+    <div class="Sign-Up" hidden>
+      <input type="text" id="username">
+      <input type="password" id="password">
+      <button>Sign-Up</button>
+      <button>Login instead</button>
+    </div>
+  </body>
+</html>
