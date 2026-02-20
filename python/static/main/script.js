@@ -30,3 +30,7 @@ function showMenu() {
     menu.hidden = true;
   }
 }
+
+function logout() {
+  window.location.href = "/logout";
+}

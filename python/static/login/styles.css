@@ -16,6 +16,7 @@
 
 body {
   background-color: var(--bg-color);
+  transition: background-color 0.3s;
 }
 
 nav {
@@ -31,6 +32,7 @@ nav img {
   height: 5vh;
   filter: invert(var(--invert));
   margin-left: 5px;
+  transition: filter 0.3s;
 }
 
 nav h1 {
@@ -54,45 +56,306 @@ nav button {
 nav button img {
   height: 3vh;
   filter: invert(var(--invert));
+  transition: filter 0.3s;
 }
 
-.login {
+#menu {
+  z-index: 1000;
+  position: fixed;
+  flex-direction: column;
+  top: 6vh;
+  right: 2vw;
+  background-color: var(--menu-color);
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#menu h3 {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  color: var(--text-color);
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  transition: color 0.3s;
+}
+
+#menu ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+#menu ul li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#menu ul li p {
+  margin-right: 5px;
+  margin-left: 5px;
+  color: var(--text-color);
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  transition: color 0.3s;
+}
+
+#modeB {
+  border: none;
+  background-color: transparent;
+}
+
+#modeB img {
+  width: 24px;
+  height: 24px;
+  transition: opacity 0.3;
+}
+
+#icon-sun {
+  opacity: 1;
+}
+
+#icon-moon {
+  opacity: 0;
+}
+
+.light-mode #icon-sun {
+  opacity: 0;
+}
+
+.light-mode #icon-moon {
+  opacity: 1;
+}
+
+#login {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: var(--div-color);
   border-radius: 5px;
   margin-top: 10px;
+  transition: background-color 0.3s;
 }
 
-.login .user {
+#login .user {
   display: flex;
   flex-direction: row;
   margin-top: 10px;
   margin-bottom: 5px;
 }
 
-.login .user p {
+#login .user p {
   margin: 0px;
-  margin-right: 10px;
+  margin-right: 1em; /*Needs to be centered*/
   color: var(--text-color);
   font-family: "Inter";
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
+  transition: color 0.3s;
 }
 
-.login .pass {
+#login .user input {
+  background-color: var(--bg-color);
+  border-color: var(--bg-color);
+  border-radius: 5px;
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  color: var(--text-color);
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+#login .pass {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#login .pass p {
+  margin: 0px;
+  margin-right: 1em; /*Needs to be centered*/
+  color: var(--text-color);
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  transition: color 0.3s;
+}
+
+#login .pass input {
+  background-color: var(--bg-color);
+  border-color: var(--bg-color);
+  border-radius: 5px;
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  color: var(--text-color);
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+#login #loginB {
+  margin-bottom: 10px;
+  background-color: #1B75D0;
+  color: #F5F5F5;
+  border: none;
+  border-radius: 5px;
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  cursor: pointer;
+}
+
+#login #signInstead {
+  margin-bottom: 10px;
+  background-color: #5B469F;
+  color: #F5F5F5;
+  border: none;
+  border-radius: 5px;
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  cursor: pointer;
+}
+
+#signUp {
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--div-color);
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+#signUp .user {
   display: flex;
   flex-direction: row;
   margin-top: 10px;
   margin-bottom: 5px;
 }
 
-.login .pass p {
+#signUp .user p {
   margin: 0px;
-  margin-right: 10px;
+  margin-right: 1em;  /*Needs to be centered*/
   color: var(--text-color);
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  transition: color 0.3s;
+}
+
+#signUp .user input {
+  background-color: var(--bg-color);
+  border-color: var(--bg-color);
+  border-radius: 5px;
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  color: var(--text-color);
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+#signUp .pass {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+#signUp .pass p {
+  margin: 0px;
+  margin-right: 1em;  /*Needs to be centered*/
+  color: var(--text-color);
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  transition: color 0.3s;
+}
+
+#signUp .pass input {
+  background-color: var(--bg-color);
+  border-color: var(--bg-color);
+  border-radius: 5px;
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  color: var(--text-color);
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+#signUp .passV {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#signUp .passV p {
+  margin: 0px;
+  margin-right: 1em; /*Needs to be centered*/
+  color: var(--text-color);
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  transition: color 0.3s;
+}
+
+#signUp .passV input {
+  background-color: var(--bg-color);
+  border-color: var(--bg-color);
+  border-radius: 5px;
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  color: var(--text-color);
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+#signUp #signB {
+  margin-bottom: 10px;
+  background-color: #1B75D0;
+  color: #F5F5F5;
+  border: none;
+  border-radius: 5px;
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  cursor: pointer;
+}
+
+#signUp #loginInstead {
+  margin-bottom: 10px;
+  background-color: #5B469F;
+  color: #F5F5F5;
+  border: none;
+  border-radius: 5px;
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  cursor: pointer;
+}
+
+#messageL, #messageS {
+  color: #AC0000;
   font-family: "Inter";
   font-optical-sizing: auto;
   font-weight: 300;

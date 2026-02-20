@@ -3,13 +3,13 @@ import os
 
 class Hash:
     def __init__(self):
-        if os.path.exists("key.txt"):
-            file = open("key.txt", "r")
+        if os.path.exists("static/key.txt"):
+            file = open("static/key.txt", "r")
             self.key = file.read()
             file.close()
         else:
             print("Can't find key file. Revert to standard!")
-            with open("key.txt", "w") as file:
+            with open("static/key.txt", "w") as file:
                 file.write("palm")
                 file.close()
             self.key = "palm"
@@ -19,7 +19,14 @@ class Hash:
         password_hash = hashobj.hexdigest()
         return password_hash
 
-    def check_hash(self, password, hashed_pw):
-        hashobj = hashlib.sha256(self.key.encode() + password.encode())
-        password_hash = hashobj.hexdigest()
-        return password_hash == hashed_pw
+    def hash_session(self, user):
+        hashobj = hashlib.sha256(user.encode() + self.key.encode())
+        session_hash = hashobj.hexdigest()
+        return session_hash
+
+    def check_pw(self, password, hashed_pw):
+        return password == hashed_pw
+
+    def check_session(self, user, log):
+        hashobj = hashlib.sha256(user.encode() + self.key.encode())
+        return log == hashobj.hexdigest()

@@ -17,19 +17,22 @@
       <img src="/static/favicon-192x192.png">
       <h1>palm-trees</h1>
       <button id="settings" onclick="showMenu()">
-        <img src="/static/main/settings.png">
+        <img src="/static/settings.png">
       </button>
     </nav>
 
     <div id="menu" hidden>
       <h3>settings</h3>
       <ul>
-        <li>
+        <li class="mode">
           <p>Mode:</p>
           <button id="modeB" onclick="changeMode()">
-            <img src="/static/main/sun.svg" id="icon-sun">
-            <img src="/static/main/moon.svg" id="icon-moon">
+            <img src="/static/sun.svg" id="icon-sun">
+            <img src="/static/moon.svg" id="icon-moon">
           </button>
+        </li>
+        <li class="logout">
+          <button onclick="logout()">logout</button>
         </li>
       </ul>
     </div>

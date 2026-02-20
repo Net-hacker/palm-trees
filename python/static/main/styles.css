@@ -32,6 +32,7 @@ nav img {
   height: 5vh;
   filter: invert(var(--invert));
   margin-left: 5px;
+  transition: filter 0.3s;
 }
 
 nav h1 {
@@ -55,6 +56,7 @@ nav button {
 nav button img {
   height: 3vh;
   filter: invert(var(--invert));
+  transition: filter 0.3s;
 }
 
 #followed {
@@ -125,7 +127,7 @@ nav button img {
   font-weight: 300;
   font-style: normal;
   color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s ;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
 #create {
@@ -155,8 +157,10 @@ nav button img {
   background-color: var(--bg-color);
   border-radius: 5px;
   border-color: var(--bg-color);
+  color: var(--text-color);
   resize: none;
   margin-bottom: 10px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
 #create button {
@@ -188,6 +192,7 @@ nav button img {
   font-optical-sizing: auto;
   font-weight: 200;
   font-style: normal;
+  transition: color 0.3s;
 }
 
 #menu {
@@ -198,6 +203,7 @@ nav button img {
   right: 2vw;
   background-color: var(--menu-color);
   border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
 #menu h3 {
@@ -210,6 +216,7 @@ nav button img {
   font-optical-sizing: auto;
   font-weight: 200;
   font-style: normal;
+  transition: color 0.3s;
 }
 
 #menu ul {
@@ -218,13 +225,13 @@ nav button img {
   padding: 0px;
 }
 
-#menu ul li {
+.mode {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-#menu ul li p {
+.mode p {
   margin-right: 5px;
   margin-left: 5px;
   color: var(--text-color);
@@ -232,6 +239,7 @@ nav button img {
   font-optical-sizing: auto;
   font-weight: 200;
   font-style: normal;
+  transition: color 0.3s;
 }
 
 #modeB {
@@ -259,4 +267,21 @@ nav button img {
 
 .light-mode #icon-moon {
   opacity: 1;
+}
+
+.logout {
+  display: flex;
+  justify-content: center;
+}
+
+.logout button {
+  margin-bottom: 5px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  border-radius: 5px;
+  border: none;
 }
